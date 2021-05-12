@@ -2,10 +2,12 @@ import { Module } from '@nestjs/common';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { TodosService } from './todo/todo.service';
+import { AuthModule } from '@monorepo-with-nx/auth';
 
 @Module({
-  imports: [],
+  imports: [AuthModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, TodosService],
 })
 export class AppModule {}
